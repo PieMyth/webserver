@@ -66,3 +66,4 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 Special thanks to:
 * Actix examples - [repo/examples](https://github.com/actix/examples)
 * Tera examples - [repo/examples](https://github.com/Keats/tera/tree/master/examples)
+* Original website template - [FreeWebsiteTemplates](https://freewebsitetemplates.com/preview/ecologicalwebsitetemplate/index.html)
