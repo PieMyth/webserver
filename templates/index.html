@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Title Here</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="icon" 
+      type="image/png" 
+      href="images/favicon.png">
+	<!--[if IE 9]>
+		<link rel="stylesheet" type="text/css" href="css/ie9.css" />
+	<![endif]-->
+	<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="css/ie8.css" />
+	<![endif]-->
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/ie7.css" />
+	<![endif]-->
+</head>
+<body>
+<!--	<div id="header">
+		<div>
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.jpg" alt="Logo" /></a>
+			</div>
+			<div id="navigation">
+				<div>
+					<ul>
+						<li class="current"><a href="index.html">Home</a></li>
+						<li><a href="about.html">About us</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="whychoose.html">Why Choose Us?</a></li>
+						<li><a href="blog.html">Blog</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div> -->
+	<div id="content">
+		<div id="section">
+			<div>
+				<h1>Name Here</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum nibh quis congue dignissim. Duis vestibulum hendrerit tempus. In vel eros quis neque feugiat dapibus. Vivamus finibus urna neque, hendrerit consequat enim suscipit eget. Suspendisse molestie eget lorem quis dapibus. Mauris id dictum quam. Maecenas maximus, nunc nec euismod molestie, nisl erat commodo lacus, consectetur aliquet mauris orci ut justo leo. 
+				</p>
+
+			</div>
+			<div id="figure">
+				<a href="index.html"><img src="https://dummyimage.com/607x305/000/fff.png" alt="Image" /></a>
+				<span></span>
+			</div>
+			<span class="background"></span>
+		</div>
+				{% block proj %}
+					{% set len = projects | length %}
+                	{% for project in projects %}
+                		{% if loop.index0 != 0 and loop.index0 % 3 == 0 %}
+                			</ul>
+                			</div>
+                		{% endif %}
+                		{% if loop.index0 % 3 == 0 %}
+		        			<div id="featured">
+                			<ul>
+							<li class="first">
+                		{% else %}
+                			<li>
+                		{% endif %}
+						<a href="{{ project.link }}" target="_blank"><img src="{{ project.image }}" alt="{{ project.name }}" /></a>
+                		<p>Project: {{ project.name }}</br>
+                  		Language(s) Used:
+                  		{{ project.language | join(sep=", ")}}
+                  		</br>Description: {{ project.description }}
+                    	</p>
+						<a class="link" href="{{ project.link }}" target="_blank">Link to repository</a>
+                		</li>
+                  		{% endfor %}
+                  	{% if len % 3 != 0 %}
+                		</ul>
+                	{% endif %}
+                	</div>
+                {% endblock proj %}
+	</div>
+	<div id="footer">
+		<div>
+			<div class="first">
+				<h3>Social Links:</h3>
+				<div>
+					<a href="#" class="facebook" target="_blank"></a>
+					<a href="#" class="twitter" target="_blank"></a>
+					<a href="#" class="linked-in" target="_blank"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
