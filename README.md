@@ -39,6 +39,7 @@ You should then be able to either go to:
 * If you don't wish to support either http or https, simply comment out or delete the binding in the main.rs file located in the main() function.
 * Windows: Make sure to include openssl in windows into an environment variable named `OPENSSL_DIR` more details [here](https://stackoverflow.com/questions/50625283/how-to-install-openssl-in-windows-10)
 * Linux: make sure to have `libssl-dev` installed
+* Due to the nature of hashmaps, the projects do not show up in a determined order and may be in a different order each time the page is loaded
 
 ## Built with
 * env_logger = "0.7.1" - Debugging logger
