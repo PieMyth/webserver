@@ -1,5 +1,5 @@
 # Rust Webserver
-This webserver was created as a basic template and learning how to use Actix and Tera in rust to create a website. This has been confirmed to run off of a Raspberry Pi 3, making it a fast and effecient webserver with little power draw.
+This webserver was created as a basic template and learning how to use Actix and Tera in rust to create a website. This has been confirmed to run off of a Raspberry Pi 3, making it a fast and effecient webserver with little power draw. While at the same time being able to dynamically deliver projects onto the webpage by simply just updating the JSON file with more projects!
 
 ## Getting Started
 
