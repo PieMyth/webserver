@@ -55,11 +55,11 @@
 				{% block proj %}
 					{% set len = projects | length %}
                 	{% for project in projects %}
-                		{% if loop.index0 != 0 and loop.index0 % 3 == 0 %}
-                			</ul>
-                			</div>
-                		{% endif %}
                 		{% if loop.index0 % 3 == 0 %}
+						    {% if loop.index0 != 0 %}
+								</ul>
+								</div>
+							{% endif %}
 		        			<div id="featured">
                 			<ul>
 							<li class="first">
@@ -74,7 +74,7 @@
                     	</p>
 						<a class="link" href="{{ project.link }}" target="_blank">Link to repository</a>
                 		</li>
-                  		{% endfor %}
+                  	{% endfor %}
                   	{% if len % 3 != 0 %}
                 		</ul>
                 	{% endif %}
