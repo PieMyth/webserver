@@ -63,8 +63,7 @@ fn get_projects()-> Vec<Project> {
         projects.push(proj.1);
     }
 	
-	projects.sort_by(|a,b| b.rank.cmp(&a.rank));
-	projects.reverse();
+	projects.sort_by(|a,b| a.rank.cmp(&b.rank));
 	
 	projects
 }
