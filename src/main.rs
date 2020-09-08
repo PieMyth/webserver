@@ -20,7 +20,7 @@ use std::collections::HashMap;
 use actix_web_middleware_redirect_https::RedirectHTTPS;
 
 //Structure that follows the json file
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd)]
 struct Project {
     name: String,
     language: Vec<String>,
@@ -28,6 +28,7 @@ struct Project {
     implementation: String,
     link: String,
     image: String,
+	rank: usize,
 }
 
 //Gets all of the projects from the jsonfile in templates/projects.json
@@ -51,7 +52,8 @@ fn get_projects()-> Vec<Project> {
         Err(why) => panic!("couldn't read {}: {}", display, why),
         Ok(_) => (),
     }
-
+	
+	// Put the json contents into a hashmap
     let p: HashMap<String,Project> = match serde_json::from_str(&s){
         Err(why) => panic!("couldn't convert to json: {}", why),
         Ok(p) => p,
@@ -60,9 +62,11 @@ fn get_projects()-> Vec<Project> {
     for proj in p{
         projects.push(proj.1);
     }
-
-
-    projects
+	
+	projects.sort_by(|a,b| b.rank.cmp(&a.rank));
+	projects.reverse();
+	
+	projects
 }
 
 // store tera template in application state
