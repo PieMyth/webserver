@@ -1,3 +1,8 @@
+// Copyright © 2018 William Haugen - Piemyth
+// [This work is licensed under the "MIT License"]
+// Please see the file LICENSE in the source
+// distribution of this software for license terms.
+
 use std::{fs::File, io::{BufReader, Read}, path::Path, collections::HashMap};
 
 use actix_web::{error, dev::{ServiceResponse, Service}, get, web, Error, http, App, HttpResponse, HttpServer, Result};
@@ -101,7 +106,7 @@ async fn main() -> std::io::Result<()> {
         .with_single_cert(cert_chain, keys.remove(0))
         .unwrap();    
 
-    println!("starting HTTP server at http://localhost:8080");
+    log::info!("starting HTTP server at http://localhost:8080");
 
     HttpServer::new(|| {
             // Loads all of the html files into tera
