@@ -9,8 +9,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 Here are what things you need to install the software and how to install them. The dependencies are provided via Cargo.toml and are mentioned later. This is what is used to develop on, you may be able to use different versions, however your experience may vary.
 ```
-rustc 1.45.2 (d3fb005a3 2020-07-31) or rustc 1.46.0-nightly (0ca7f74db 2020-06-29)
-OpenSSL 1.1.1g 21 Apr 2020 (if you want to support https)
+rustc 1.60.0 (7737e0b5c 2022-04-04)
+OpenSSL 3.0.2#3 (if you want to support https)
 ```
 
 ### Installing
@@ -42,16 +42,16 @@ You should then be able to either go to:
 * Due to the nature of hashmaps, the projects do not show up in a determined order, this is why the vector is sorted according to the rank after the fact
 
 ## Built with
-* env_logger = "0.7.1" - Debugging logger
-* tera = "1.4.0" - Template engine
-* actix-http = "1.0.1" - Actix HTTP primitives
-* actix-web = { version = "2.0.0", features = ["openssl"] } - Actix web framework 
-* actix-rt = "1.1.1" - Actix runtime
-* actix-files = "0.2.2" - Static files support for actix web.
-* openssl = "0.10.30" - OpenSSL bindings
-* actix-web-middleware-redirect-https = "1.0.0" - Forward http traffic to https
+* env_logger = "0.9.0" - Debugging logger
+* tera = "1.15.0" - Template engine
+* actix-web = { version = "4.0.1", features = ["openssl", "rustls"] } - Actix web framework 
+* actix-files = "0.6.0" - Static files support for actix web.
 * serde = "1.0.114" - Deserialization framework
 * serde_json = "1.0.57" - Serialization for JSON files
+* futures-util = { version = "0.3.7", default-features = false, features = ["std"] } - Futures for async funcitons
+* log = "0.4" - Logger macro
+* rustls = "0.20.2" - Support ssl
+* rustls-pemfile = "0.2.1" - Pem files (used for the ssl certs)
 
 ## Authors
 
